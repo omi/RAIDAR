@@ -1,0 +1,227 @@
+.upload-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  margin: 0px auto;
+}
+
+.full-width {
+  width: 100%;
+}
+.row {
+  display: flex;
+}
+
+.progressbar {
+  height: 40px;
+  background-color: #28a0e5;
+}
+
+.scrollable {
+  height: 450px;
+  width: 600px;
+  overflow-y: scroll;
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.songField {
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  height: 58px;
+  margin-top: 0px;
+}
+
+.column {
+  flex: 50%;
+  padding: 25px;
+  padding-bottom: 0px;
+}
+
+.column-wide {
+  flex: 100%;
+  padding: 25px;
+}
+
+.makebig {
+  color: white;
+  margin: 0px auto;
+}
+
+.centerMe {
+  text-align: center;
+}
+
+.spacer {
+  // flex: 1 1 auto;
+  flex-grow: 1;
+}
+
+.check-area {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.stepper-footer {
+  display: flex;
+  height: auto;
+  margin: 20px;
+}
+
+.uploadContainer {
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}
+
+.uploadContainer .mat-form-field {
+  width: 100%;
+  min-height: 100px;
+}
+
+.uploadContainer .fileupload {
+  width: 100%;
+}
+
+.successBox {
+  display: block;
+  position: absolute;
+  width: 760px;
+  height: 330px;
+  background-color: white;
+  z-index: 100;
+  overflow: visible;
+  text-align: center;
+}
+
+.processingContainer {
+  position: relative;
+}
+
+.processingBox {
+  display: block;
+  position: absolute;
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+  min-height: 350px;
+  background-color: white;
+  z-index: 91;
+  overflow: visible;
+  top: -40px;
+}
+
+.processingSong {
+  display: block;
+  position: absolute;
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+  min-height: 850px;
+  background-color: white;
+  z-index: 91;
+  overflow: visible;
+  top: -40px;
+}
+
+.centerMe {
+  margin: 0px auto;
+  text-align: center;
+  flex: column;
+  margin-top: 40px;
+}
+
+.errorMessage {
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.centerText {
+  text-align: center;
+  margin: 20px auto;
+  max-width: 100%;
+}
+::-webkit-file-upload-button {
+  border: 1px solid currentColor;
+  padding: 0 15px;
+  line-height: 34px;
+  background: white;
+  color: #138c36;
+  border: 1px solid #eeeeee;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 3px;
+  cursor: pointer;
+  :hover {
+    background-color: #eeeeee;
+  }
+  :focus {
+    outline: -webkit-focus-ring-color auto 5px;
+  }
+}
+.mat-dialog-title {
+  margin-bottom: 0px;
+  h4 {
+    margin: 0px;
+  }
+}
+.flexRow {
+  display: flex;
+  margin: 0px;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+.closeButton {
+  margin: 0px;
+  padding: 0px;
+  min-width: 0px;
+}
+
+.loading {
+  text-align: left;
+  position: relative;
+}
+
+.loading:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  -webkit-animation: ellipsis steps(4, end) 900ms infinite;
+  animation: ellipsis steps(4, end) 900ms infinite;
+  content: "\2026"; /* ascii code for the ellipsis character */
+  width: 0px;
+  color: red;
+}
+
+.hasVoxLabel {
+  color: rgb(118, 118, 118);
+}
+
+.hasVoxButton {
+  margin: 5px;
+}
+
+::ng-deep .mat-horizontal-stepper-header {
+  pointer-events: none !important;
+}
+
+.congrats {
+  animation-delay: 1s;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 1em;
+  }
+}
+
+@-webkit-keyframes ellipsis {
+  to {
+    width: 1em;
+  }
+}

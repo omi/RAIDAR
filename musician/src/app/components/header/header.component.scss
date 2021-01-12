@@ -1,0 +1,36 @@
+.left {
+  display: flex;
+  position: relative;
+  left: 10px;
+}
+.right {
+  display: block;
+  right: 40px;
+  top: 40px;
+  position: absolute;
+}
+.logo {
+  display: inline-flex;
+  max-width: 200px;
+  position: relative;
+  top: 33px;
+  left: 30px;
+}
+
+.subhead {
+  color: #444444;
+  position: absolute;
+  top: 95px;
+  left: 56px;
+  font-size: 12px;
+}
+
+::ng-deep .header-bar {
+  background-color: white;
+  border-bottom: 3px solid #c4c4c4;
+  height: 140px;
+}
+
+::ng-deep .right :focus {
+  outline: -webkit-focus-ring-color auto 0px;
+}

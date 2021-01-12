@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="headTop">
+    <h3>My Library</h3>
+      <div class="spacer">
+        &nbsp;
+      </div>
+    
+    <div class="spacer">
+      &nbsp;
+    </div>
+    <div class="rightSide">
+      <button mat-raised-button color="accent" [routerLink]="['/upload']" routerLinkActive="router-link-active">
+        Upload a new song
+      </button>
+    </div>
+    
+  </div>
+  <div class="leftNav">
+    <div class="searchBackground">
+      <br />
+      <mat-form-field
+        class="search-field"
+        appearance="outline"
+        floatLabel="never"
+      >
+        <input
+          class="whiteBg"
+          matInput
+          type="text"
+          placeholder="Search"
+          [(ngModel)]="songsName.song_title"
+        />
+        <mat-icon matSuffix class="greenSearch">search</mat-icon>
+      </mat-form-field>
+    </div>
+    <ng-template #loading>
+      <mat-progress-bar mode="buffer"></mat-progress-bar>
+    </ng-template>
+    <mat-nav-list>
+      <ng-container *ngIf="songs$ | async as songs; else loading">
+        <mat-list-item
+        class="animated fadeInDown"
+          [class.selected]="
+            song !== undefined && selectedSong !== undefined
+              ? song.song_id == selectedSong.song_id
+              : ''
+          "
+
+          *ngFor="let song of songs$
+          | async
+          | filterBy: songsName
+          | orderBy: order"
+          (click)="onSelect(song)"
+        >
+          {{ song.song_title }}
+          <mat-icon matListIcon class="pull-right">chevron_right</mat-icon>
+        </mat-list-item>
+        <!-- <ul class="playerItem" [class.selected]="song == selectedSong">
+          <li *ngFor="let song of songs$ | async" (click)="onSelect(song)">
+            {{ song.song_title }}
+            <br />
+          </li>
+        </ul> -->
+      </ng-container>
+    </mat-nav-list>
+  </div>
+  <!-- <mat-paginator
+  (page)="onPageChange($event)"
+  [length]="songs.length"
+  [pageSize]="5"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  (urlActivated)="onUrlActivated()"
+  >
+</mat-paginator> -->
+
+  <div class="rightNav">
+    <app-playerdetail
+      [song]="selectedSong"
+      
+    ></app-playerdetail>
+  </div>
+</div>

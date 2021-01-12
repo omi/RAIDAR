@@ -1,0 +1,7 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content *ngIf="displayFirst">
+  <p [innerHTML]="data.contentIntro"></p>
+</div>
+<div mat-dialog-content *ngIf="displaySecond">
+  <p [innerHTML]="data.contentRules"></p>
+</div>

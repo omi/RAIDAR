@@ -1,0 +1,105 @@
+<form class="form-inline searchBackground">
+  <div class="form-group">
+    <mat-form-field
+      class="search-field"
+      appearance="outline"
+      floatLabel="never"
+    >
+      <input
+        type="search"
+        placeholder="Search For Music"
+        class="wphiteBg form-control"
+        [formControl]="searchField"
+        matInput
+      />
+      <mat-icon matSuffix class="greenSearch">search</mat-icon>
+    </mat-form-field>
+
+    <div style="margin: 10px 0px 20px 8px;">
+      Note: A whitenoise watermark has been added to all song previews. Upon purchasing a song, you will receive the noise-free version.
+    </div>
+  </div>
+</form>
+
+<div class="searchList">
+  <ng-template #loading>
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </ng-template>
+  <ng-container *ngIf="results != false && results?.length >= 1">
+    <div class="flexRow">
+      <h3>Search Results</h3>
+    </div>
+  </ng-container>
+  <div *ngFor="let song of results">
+    <mat-card class="song-card animate__animated animate__fadeInDown">
+      <mat-card-header>
+        <mat-card-title></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="full-width">
+          <div class="songTitle">
+            <h4>
+              {{ song._source.song_title }} by
+              {{ getArtistName(song._source) }}
+            </h4>
+          </div>
+          <div class="songElementRow">
+            <app-song
+              [file_preview_loc]="song._source.file_preview_loc"
+              [song_title]="song._source.song_title"
+            >
+            </app-song>
+            <div class="songElements" style="position: relative; left: 60px">
+              <!-- <button mat-button (click)="openSong()">SEE DETAILS</button> -->
+              <button
+                mat-button
+                *ngIf="!isInCart(song._source.song_id)"
+                (click)="addToCart(song._source.song_id)"
+              >
+                ADD TO CART
+              </button>
+              <button
+                mat-button
+                *ngIf="isInCart(song._source.song_id)"
+                (click)="removeFromCart(song._source.song_id)"
+              >
+                REMOVE FROM CART
+              </button>
+            </div>
+            <app-checkout></app-checkout>
+          </div>
+        </div>
+        <div class="songDetails">
+          <mat-accordion class="mat-elevation-z0">
+            <mat-expansion-panel hideToggle class="mat-elevation-z0">
+              <mat-expansion-panel-header>
+                <mat-panel-title> SEE DETAILS </mat-panel-title>
+                <mat-panel-description> </mat-panel-description>
+              </mat-expansion-panel-header>
+              <p>
+                Price: ${{ song._source.price }}<br />
+                Key: {{ song._source.musical_key }}<br />
+                Artist: {{ song._source.performer_known_as }}<br />
+                Songwriter: {{ song._source.song_writer }}<br />
+                Genre:{{ song._source.genre }}<br />
+                Mood: {{ song._source.mood }}<br />
+                Recording Details:<br />
+                {{ getRecordingDate(song._source) }}<br />
+                {{ song._source.recording_loc }}<br />
+              </p>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+        <ng-container *ngIf="song._source.tags != ''">
+          <app-taglist [songtags]="song._source.tags"></app-taglist>
+        </ng-container>
+        <ng-container *ngIf="song._source.tags == ''">
+          <mat-chip-list>
+            <fa-icon [icon]="faExclamationTriangle" class="blue"></fa-icon>
+            <mat-chip>No Tags Provided</mat-chip>
+          </mat-chip-list>
+        </ng-container>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

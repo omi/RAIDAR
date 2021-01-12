@@ -1,0 +1,168 @@
+<div mat-dialog-title>
+  Edit {{ song.song_title }}
+  <div class="editBoxTop">
+    <span class="spacer"></span>
+    <div class="editBoxClose">
+      <button mat-icon-button class="closeButton" (click)="close()">
+        <mat-icon matListIcon> close </mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+<div mat-dialog-content>
+  <div>
+    <div class="container">
+      <form [formGroup]="metaData">
+        <ng-template matStepLabel>Metadata</ng-template>
+
+        <div class="songField">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Song Title</mat-label>
+            <input
+              [(ngModel)]="song.song_title"
+              matInput
+              formControlName="song_title"
+            />
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <div class="column">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Songwriter</mat-label>
+              <input matInput formControlName="song_writer" [(ngModel)]="song.song_writer" />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Performer Known As</mat-label>
+              <input matInput formControlName="performer_known_as" [(ngModel)]="song.performer_known_as" />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Genre</mat-label>
+              <input matInput formControlName="genre" [(ngModel)]="song.genre" />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Mood</mat-label>
+              <input matInput formControlName="mood" [(ngModel)]="song.mood"/>
+            </mat-form-field>
+            <div style="display: none;">
+              <ma-form-field appearance="fill" class="full-width">
+                <mat-label>User Id</mat-label>
+                <input
+                  matInput
+                  formControlName="user_id"
+                  value="{{ userId }}"
+                />
+              </ma-form-field>
+            </div>
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Tags</mat-label>
+              <input matInput formControlName="tags"  [(ngModel)]="song.tags"/>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Recording Location</mat-label>
+              <input matInput formControlName="recording_location" [(ngModel)]="song.recording_location" />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Recording Date</mat-label>
+              <input
+              [(ngModel)]="song.recording_date"
+                matInput
+                [matDatepicker]="picker"
+                name="recording_date"
+                formControlName="recording_date"
+                [min]="minDate"
+                [max]="maxDate"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <br/>
+            
+            <input type="hidden" formControlName="user_id" />
+          </div>
+          <div class="column">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Price USD*</mat-label>
+              <input
+                matInput
+                [(ngModel)]="song.price"
+                formControlName="price"
+                static="true"
+                value="50"
+                type="number"
+                placeholder="50"
+              />
+            </mat-form-field>
+            <!-- </fieldset> -->
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Tonality</mat-label>
+              <select matNativeControl required formControlName="musical_key"  [(ngModel)]="song.musical_key">
+                <option value="Minor">Minor</option>
+                <option value="Major">Major</option>
+              </select>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>BPM</mat-label>
+              <input matInput type="number" [(ngModel)]="song.bpm" formControlName="bpm" min="0" />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Recording engineer</mat-label>
+              <input matInput [(ngModel)]="song.recording_engineer" formControlName="recording_engineer" />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Mixing engineer</mat-label>
+              <input matInput [(ngModel)]="song.mixing_engineer"  formControlName="mixing_engineer" />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Mastering engineer</mat-label>
+              <input matInput [(ngModel)]="song.mastering_engineer"  formControlName="mastering_engineer" />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Producer</mat-label>
+              <input matInput [(ngModel)]="song.song_producer" formControlName="song_producer" />
+            </mat-form-field>
+            
+          </div>
+          <div class="songField" style="margin-left:30px;">
+            <label id="usertypes-radio-group" class="hasVoxLabel">
+              Does this song have vocals?
+            </label><br/>
+            
+  
+            
+            <mat-radio-group aria-label="Select an option"  [(ngModel)]="song.has_vocals" formControlName="has_vocals" >
+              <mat-radio-button class="hasVoxButton" value="1">Has vocals</mat-radio-button><br/>
+              <mat-radio-button class="hasVoxButton" value="0">Instrumental</mat-radio-button>
+            </mat-radio-group><br/>
+            <mat-hint class="centerMe" align="start">
+              <small>*During RAIDAR beta, pricing is fixed to $50 with a 1% transaction fee.</small>
+            </mat-hint>
+            </div>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-stroked-button color="accent" (click)="close()">Cancel</button>
+  <span class="spacer"></span>
+  <button
+    mat-raised-button
+    color="accent"
+    type="submit"
+    class="dialogRight"
+    [routerLink]="['/audio-library']"
+    (click)="save()"
+  >
+    <!-- (click)="onSubmit(song)" -->
+    Edit Song
+  </button>
+  <div class="shim">&nbsp;</div>
+
+</div>
+<div style="height:30px;">&nbsp;</div>

@@ -1,0 +1,63 @@
+<div *ngIf="itemSelected == false" class="songslist">
+  <h2 class="mat-h2">Select a song on the left</h2>
+</div>
+<div style="margin: 10px 0px 20px 8px;">
+  Note: A whitenoise watermark has been added to your song previews. The noise-free version will be delivered to people who purchase your song.
+</div>
+<div *ngIf="song" class="songslist">
+  <ng-container
+    *ngIf="song.verified == 1"
+  >
+    <app-song
+      [file_preview_loc]="song.file_preview_loc"
+      [song_title]="song.song_title"
+    >
+    </app-song>
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="editSong()"
+      class="editSong"
+      id="{{ song.song_id }}"
+    >
+      <mat-icon matListIcon>edit</mat-icon> Edit
+    </button>
+    <mat-list role="list">
+      <mat-list-item role="list">
+
+          <span class="grey">Price: </span>&nbsp; ${{ song.price }}
+   
+
+      </mat-list-item>
+      <mat-list-item role="list">
+
+          <span class="grey">Key: </span>&nbsp; {{ song.musical_key }}
+ 
+
+      </mat-list-item >
+      <mat-list-item role="list">
+
+            <span class="grey">Artist: </span>&nbsp; {{ song.performer_known_as }}
+ 
+
+        </mat-list-item>
+      <mat-list-item>
+          <div *ngIf="song.song_writer"></div>  
+        <span class="grey">Songwriter: </span>&nbsp; {{ song.song_writer }}</mat-list-item>
+      <mat-list-item><span class="grey">Genre: </span>&nbsp; {{ song.genre }}</mat-list-item>
+      <mat-list-item><span class="grey">Mood: </span>&nbsp; {{ song.mood }}</mat-list-item>
+      <mat-list-item><span class="grey">Tags: </span>&nbsp; {{song.tags}}</mat-list-item>
+      <mat-list-item><span class="grey">Recording Date: </span>&nbsp; {{ getRecordingDate(song) }}<br />
+      </mat-list-item>
+      <mat-list-item>
+        <span class="grey">Recording Location: </span>&nbsp; {{ song.recording_location }}</mat-list-item>
+    </mat-list>
+    <br />
+
+  </ng-container>
+  <ng-container *ngIf="song.verified == 2">
+    <h3>{{song.song_title}} - Currently Processing </h3>
+    <mat-progress-bar  mode="indeterminate"></mat-progress-bar>
+    <p>Please do not reupload your work unless it's been longer than 24 hours and you still see this message.</p>
+  </ng-container>
+</div>

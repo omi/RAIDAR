@@ -1,0 +1,10 @@
+<!-- <p>taglist works! {{ songtags }}</p> -->
+<br />
+<mat-chip-list [tags]="songtags">
+  <ng-container *ngIf="fancyTags?.length > 0">
+    <fa-icon [icon]="faTags" class="blue"></fa-icon>
+    <mat-chip *ngFor="let number of fancyTags">
+      {{ number }}
+    </mat-chip>
+  </ng-container>
+</mat-chip-list>

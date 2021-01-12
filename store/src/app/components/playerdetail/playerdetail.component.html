@@ -1,0 +1,34 @@
+<div *ngIf="selectedSong == null" class="songslist">
+  <h2 class="mat-h2">Select a song on the left</h2>
+</div>
+<div *ngIf="song" class="songslist">
+  <ng-container
+    *ngIf="song.file_preview_loc == null || song.file_preview_loc.length > 3"
+  >
+    <app-song
+      [file_preview_loc]="song.file_preview_loc"
+      [song_title]="song.song_title"
+    >
+    </app-song>
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="editSong()"
+      class="editSong"
+      id="{{ song.song_id }}"
+    >
+      <mat-icon matListIcon>edit</mat-icon> Edit
+    </button>
+
+    <ng-container *ngIf="song.tags != ''">
+      <app-taglist [songtags]="song.tags"></app-taglist>
+    </ng-container>
+    <ng-container *ngIf="song.tags == ''">
+      <br />
+      <mat-chip-list>
+        <fa-icon [icon]="faExclamationTriangle" class="blue"></fa-icon>
+        <mat-chip>No Tags Provided</mat-chip>
+      </mat-chip-list>
+    </ng-container>
+  </ng-container>
+</div>

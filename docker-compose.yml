@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+    omx-musician-client:
+        image: registry.gitlab.com/open-music-x/omx/omx-musician-client:master
+        ports:
+            - "80:80"
+
+    omx-musician:
+        image: registry.gitlab.com/open-music-x/omx/omx-musician:master
+        ports:
+            - "81:80"
+
+    omx-store:
+        image: registry.gitlab.com/open-music-x/omx/omx-store:master
+        ports:
+            - "82:80"      
+
+    omx-front-page:
+        image: registry.gitlab.com/open-music-x/omx/omx-front-page:master
+        ports:
+            - "83:80" 

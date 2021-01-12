@@ -1,0 +1,46 @@
+<button [routerLink]="['/audio-library']" class="home-button" *ngIf="loggedIn">
+  <fa-icon [icon]="faHome"></fa-icon>
+</button>
+<div class="right" *ngIf="!loggedIn">
+  <button mat-raised-button color="primary" (click)="signInWithGoogle()">
+    Sign In
+  </button>
+</div>
+<div class="right" *ngIf="loggedIn">
+  <button
+    [matMenuTriggerFor]="menu"
+    aria-label="button with a menu"
+    id="profileMenu"
+    [ngStyle]="{ 'background-image': 'url(' + user.photoUrl + ')' }"
+    style="background-size: cover;"
+  >
+    &nbsp;
+  </button>
+</div>
+
+<mat-menu #menu="matMenu">
+  <div class="spacer">
+    <div>
+      <h4 *ngIf="loggedIn">{{ user.name }}</h4>
+      <p *ngIf="loggedIn">{{ user.email }}</p>
+    </div>
+    <mat-list *ngIf="loggedIn">
+      <mat-list-item
+        ><button mat-button color="accent" routerLink="profile">
+          Payouts
+        </button></mat-list-item
+      >
+
+      <mat-list-item
+        ><button mat-button color="accent" routerLink="education">
+          Education
+        </button></mat-list-item
+      >
+      <mat-list-item
+        ><button mat-button color="accent" (click)="signOut()">
+          Sign Out
+        </button></mat-list-item
+      >
+    </mat-list>
+  </div>
+</mat-menu>

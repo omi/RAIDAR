@@ -1,0 +1,41 @@
+<div mat-dialog-title>
+  <div class="editBoxTop">
+    <span class="spacer"></span>
+    <div class="editBoxClose">
+      <button mat-icon-button class="closeButton" (click)="close()">
+        <mat-icon matListIcon> close </mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+<div mat-dialog-content>
+  <ng-container *ngIf="cartItems.length != 0">
+    <div class="songInCart header">
+      <div class="songAttr title">Song</div>
+      <div class="songAttr quantity">Quantity</div>
+      <div class="songAttr price">Price</div>
+    </div>
+    <div *ngFor="let cartSong of cartSongs; index as i">
+      <div class="songInCart">
+        <div class="songAttr title"><b>{{ cartSong['song_title'] }}</b> by {{ getArtist(cartSong) }}</div>
+        <div class="songAttr quantity">{{ cartItems[i]['quantity'] }} </div>
+        <div class="songAttr price">{{ getSongTotal(cartSong, cartItems[i]) }} </div>
+      <!--div class="songAttr remove"><button (click)="removeSong(cartSong['song_id'])">Remove</button></div-->
+      </div>
+    </div>
+    <div class="songInCart" style="margin-top:15px;">
+      <div class="songAttr title"></div>
+      <div class="songAttr quantity grandTotal">Processing fee:</div>
+      <div class="songAttr price">${{ getCartFee() }}</div>
+    </div>
+    <div class="songInCart">
+      <div class="songAttr title"></div>
+      <div class="songAttr quantity grandTotal"><b>Total:</b></div>
+      <div class="songAttr price">${{ getCartTotal() }}</div>
+    </div>
+    <app-payment></app-payment>
+  </ng-container>
+  <ng-container *ngIf="cartItems.length == 0">
+    Add items to your cart from the music library.
+  </ng-container>
+</div>

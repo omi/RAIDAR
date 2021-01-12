@@ -1,0 +1,23 @@
+<div mat-dialog-title>
+  <div class="closeBoxTop">
+    <h2>
+      <fa-icon [icon]="faCloudDownloadAlt" class="blue"></fa-icon> Download
+      Audio File
+    </h2>
+    <span class="spacer"></span>
+    <div class="boxClose">
+      <button mat-icon-button class="closeButton" (click)="close()">
+        <mat-icon matListIcon> close </mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+<div mat-dialog-content>
+  {{ song.song_title }}
+  <fa-icon [icon]="faMusic" class="blue"></fa-icon>&nbsp;&nbsp;
+  <a href="{{ downloadurl.download_url }}">Download Here </a><br /><br />
+  <fa-icon [icon]="faFilePdf" class="blue"></fa-icon>&nbsp;&nbsp;
+  <a href="{{ licenseurl.download_url }}">Download License</a>
+
+  <br />
+</div>

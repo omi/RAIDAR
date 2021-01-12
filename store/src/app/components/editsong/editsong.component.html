@@ -1,0 +1,33 @@
+<div mat-dialog-title>
+  {{ song }}
+  <div class="editBoxTop">
+    <span class="spacer"></span>
+    <div class="editBoxClose">
+      <button mat-icon-button class="closeButton" (click)="close()">
+        <mat-icon matListIcon> close </mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+<div mat-dialog-content>
+  <div>
+    <div class="container">
+      {{ song.price }}
+      {{ song.musical_key }}
+      Performed by:
+      {{ song.performer_known_as }}
+      {{ song.song_writer }}<br />
+      Details:
+      {{ song.genre }}
+      {{ song.tags }}
+      {{ song.mood }}<br />
+      Recording Details:
+      {{ song.recording_loc }}
+      {{ song.recording_date }}
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-stroked-button color="accent" (click)="close()">Cancel</button>
+  <span class="spacer"></span>
+</div>

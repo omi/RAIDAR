@@ -1,0 +1,393 @@
+.stage {
+  background-color: white;
+  height: 100%;
+  max-width: 800px;
+  width: 80%;
+  margin: 0px auto;
+  margin-top: 0px;
+}
+
+.container {
+  background-color: white;
+  display: block;
+  width: 960px;
+  margin: 0px auto;
+  height: calc(100vh - 160px);
+  padding: 0px;
+  padding-top: 0;
+  margin-top: 0px;
+}
+.downloadsList {
+  display: table;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-gap: 20px;
+  width: 960px;
+  background-color: #e6f4ff !important;
+}
+
+.container {
+  background-color: #e6f4ff !important;
+  display: block;
+  width: 960px;
+  margin: 0px auto;
+  height: calc(100vh - 160px);
+  padding: 0px;
+  padding-top: 0;
+  margin-top: 0px;
+}
+.headTop {
+  // padding: 20px;
+  width: 960px;
+  background-color: #e6f4ff !important;
+  // border-bottom: 2px solid #45aaf2;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0px;
+}
+
+h2 {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.green {
+  color: green;
+  background-color: white;
+}
+
+.greenSearch {
+  color: #16943c;
+}
+
+.gray-share {
+  color: #eeeeee;
+  height: 30px;
+}
+
+.blue-share {
+  color: #0071bd;
+  height: 30px;
+}
+
+.customArea {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.whiteBg {
+  background-color: white;
+  padding-top: 20px;
+  margin-top: -28px;
+  padding-bottom: 20px;
+  margin-bottom: -15px;
+  margin-right: 20px;
+  padding-right: 26px;
+  padding-left: 20px;
+  margin-left: -11px;
+  border-radius: 4px;
+}
+
+.whiteBg:after {
+  display: block;
+  position: absolute;
+  top: 0px;
+  content: "";
+  width: 45px;
+  height: 20px;
+  border-radius: 20px;
+}
+
+.storeList {
+  display: table;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-gap: 20px;
+  width: 960px;
+  background-color: #e6f4ff !important;
+}
+
+.leftNav {
+  width: 360px;
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+  border-right: 1px solid #ddd;
+  float: left;
+  margin-top: 0;
+  padding: 0px 0px;
+  background-color: #f8f8f8;
+  overflow-x: hidden;
+}
+
+.pull-right {
+  position: absolute;
+  right: 20px;
+  color: #ccc;
+}
+md-icon[md-chevron-right-icon] {
+  order: 10;
+}
+
+.selected {
+  background: #ddd;
+  transition: transform 0.5ms;
+  .pull-right {
+    color: #0071bd;
+  }
+}
+
+.rightNav {
+  height: calc(100vh - 60px);
+  width: 599px;
+  padding-left: 0;
+  padding-right: 0px;
+  overflow-y: auto;
+  display: block;
+  float: right;
+  background: white;
+}
+
+.editSong {
+  width: 110px;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.mat-list-item {
+  width: 100%;
+  display: block;
+}
+
+.full-width {
+  display: block;
+  width: 100%;
+  margin: 10px auto;
+}
+
+.artwork {
+  max-width: 300px;
+  height: 120px;
+  display: block;
+}
+
+.left {
+  flex: none;
+  max-width: 300px;
+  float: left;
+}
+
+.right {
+  max-width: 800px;
+  flex: none;
+}
+
+.playerItem {
+  list-style-type: none;
+}
+.playerItem li {
+  margin-bottom: 20px;
+}
+
+.songTitle {
+  display: block;
+  clear: right;
+}
+
+.songElementsRow {
+  width: 100%;
+}
+
+h4 {
+  display: block;
+  font-size: 19px;
+}
+
+.songElementRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.songDetails {
+  width: 900px;
+}
+
+mat-accordion {
+  box-shadow: none !important;
+}
+
+app-song {
+  width: 630px;
+}
+
+.ngx-basic-audio-player {
+  width: 630px;
+}
+
+body {
+  margin: 0;
+}
+
+.tags {
+  display: block;
+}
+
+.audio.green-audio-player {
+  width: 400px;
+  min-width: 300px;
+  height: 56px;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.07);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 24px;
+  padding-right: 24px;
+  border-radius: 4px;
+  user-select: none;
+  -webkit-user-select: none;
+  background-color: #fff;
+  .play-pause-btn {
+    display: none;
+    cursor: pointer;
+  }
+  .spinner {
+    width: 18px;
+    height: 18px;
+    background-image: url(../../../assets/loading.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: spin 0.4s linear infinite;
+  }
+  .slider {
+    flex-grow: 1;
+    background-color: #d8d8d8;
+    cursor: pointer;
+    position: relative;
+    .progress {
+      background-color: #45aaf2;
+      border-radius: inherit;
+      position: absolute;
+      pointer-events: none;
+      .pin {
+        height: 16px;
+        width: 16px;
+        border-radius: 8px;
+        background-color: #45aaf2;
+        position: absolute;
+        pointer-events: all;
+        box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.32);
+      }
+    }
+  }
+  .controls {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    line-height: 18px;
+    color: #55606e;
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 24px;
+    margin-right: 24px;
+    .slider {
+      margin-left: 16px;
+      margin-right: 16px;
+      border-radius: 2px;
+      height: 4px;
+      .progress {
+        width: 0;
+        height: 100%;
+        .pin {
+          right: -8px;
+          top: -6px;
+        }
+      }
+    }
+    span {
+      cursor: default;
+    }
+  }
+  .volume {
+    position: relative;
+    .volume-btn {
+      cursor: pointer;
+      &.open path {
+        fill: #44bfa3;
+      }
+    }
+    .volume-controls {
+      width: 30px;
+      height: 135px;
+      background-color: rgba(0, 0, 0, 0.62);
+      border-radius: 7px;
+      position: absolute;
+      left: -3px;
+      bottom: 52px;
+      flex-direction: column;
+      align-items: center;
+      display: flex;
+      &.hidden {
+        display: none;
+      }
+      .slider {
+        margin-top: 12px;
+        margin-bottom: 12px;
+        width: 6px;
+        border-radius: 3px;
+        .progress {
+          bottom: 0;
+          height: 100%;
+          width: 6px;
+          .pin {
+            left: -5px;
+            top: -8px;
+          }
+        }
+      }
+    }
+  }
+}
+svg,
+img {
+  display: block;
+}
+
+@keyframes spin {
+  from {
+    transform: rotateZ(0);
+  }
+  to {
+    transform: rotateZ(1turn);
+  }
+}
+
+.flexRow {
+  display: flex;
+  padding-left: 20px;
+}
+
+.flex-child {
+  flex: 1 1 auto;
+  max-width: 10px;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+.songElements {
+  display: auto;
+  padding-right: 20px;
+  width: 270px;
+}
+
+.song-card {
+  flex: auto;
+  border: 1px solid #eeeeee;
+  margin: 11px;
+  content: normal;
+}

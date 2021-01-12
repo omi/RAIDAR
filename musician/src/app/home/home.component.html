@@ -1,0 +1,15 @@
+<div *ngIf="loggedIn" class="stage">
+  <!-- <div *ngIf="firstLogin || !hasAgreedTOS"></div> -->
+  <div *ngIf="firstLogin || !hasAgreedTOS">
+    <app-register></app-register>
+  </div>
+  <div *ngIf="!firstLogin && hasAgreedTOS">
+    <app-edu-topic-list></app-edu-topic-list>
+  </div>
+</div>
+<div *ngIf="!loggedIn" class="stage">
+  <div style="text-align: center; margin: 0px auto;">
+    <br />
+    <h2>Please Sign In To Continue</h2>
+  </div>
+</div>

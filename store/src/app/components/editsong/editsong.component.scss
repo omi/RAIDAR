@@ -1,0 +1,51 @@
+.editBoxTop {
+  display: flex;
+}
+
+.closeButton {
+  margin-left: auto;
+  order: 2;
+  position: absolute;
+  right: 25px;
+  top: 20px;
+}
+
+.songField {
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  height: 58px;
+  margin-top: 0px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+.mat-dialog-title {
+  margin-bottom: -20px;
+  padding-bottom: 10px;
+}
+
+.mat-dialog-content {
+  max-height: 95vh;
+  min-height: 80vh;
+}
+
+.mat-dialog-content {
+  height: 100% !important;
+  overflow: auto;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+  padding: 25px;
+}

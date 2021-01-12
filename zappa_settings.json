@@ -1,0 +1,62 @@
+{
+    "dev": {
+        "app_function": "run.app",
+        "aws_region": "us-east-1",
+        "profile_name": "default",
+        "project_name": "raidar",
+        "runtime": "python3.7",
+        "s3_bucket": "raidar-development",
+        "slim_handler" : "false",
+        "include":[],
+        "memory_size": 1024,
+        "timeout_seconds": 300,
+        "log_level": "DEBUG",
+        "cors": {
+            "allowed_headers": "*",
+            "allowed_methods": "*",
+            "allowed_origin": "*"
+        },
+        "vpc_config": {
+            "SubnetIds": [
+                "subnet-85c3558b",
+                "subnet-92127edf"
+            ],
+            "SecurityGroupIds": [
+                "sg-0163c5f82a2c13ff3",
+                "sg-2d419414",
+                "sg-01c967f0cd88ee3bd"
+            ]
+
+        },
+        "keep_warm_expression": "rate(2 minutes)",
+    },
+    "production": {
+        "app_function": "run.app",
+        "aws_region": "us-east-1",
+        "profile_name": "default",
+        "project_name": "raidar",
+        "runtime": "python3.7",
+        "s3_bucket": "raidar-production",
+        "slim_handler" : "false",
+        "include":[],
+        "memory_size": 1024,
+        "timeout_seconds": 300,
+        "log_level": "DEBUG",
+        "cors": {
+            "allowed_headers": "*",
+            "allowed_methods": "*",
+            "allowed_origin": "*"
+        },
+        "vpc_config": {
+            "SubnetIds": [
+                "subnet-0a2cf16c",
+                "subnet-32c71c13",
+                "subnet-92127edf",
+                "subnet-5bb06904",
+                "subnet-3323c302",
+                "subnet-85c3558b"
+            ],
+        },
+        "keep_warm_expression": "rate(2 minutes)",
+    }
+}

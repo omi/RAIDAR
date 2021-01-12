@@ -1,0 +1,288 @@
+<div *ngIf="loggedIn === true" class="stage">
+  <div class="container">
+    <h2>Upload A New Song</h2>
+    <mat-horizontal-stepper #stepper linear class="uploadForm">
+      <mat-step [stepControl]="metaData">
+        <!-- ngIf="processingSong == true" -->
+        <div class="processingContainer" *ngIf="processingSong === true">
+          <div class="processingSong">
+            <br /><br />
+            <mat-progress-spinner
+              [diameter]="70"
+              mode="indeterminate"
+              style="margin: 0px auto"
+            ></mat-progress-spinner>
+            <h3>Processing Metadata</h3>
+          </div>
+        </div>
+
+        <form [formGroup]="metaData">
+          <ng-template matStepLabel>Metadata</ng-template>
+
+          <div class="songField">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Song Title</mat-label>
+              <input matInput formControlName="song_title" required />
+            </mat-form-field>
+          </div>
+          <div class="row">
+            <div class="column">
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Songwriter</mat-label>
+                <input matInput formControlName="song_writer" required />
+              </mat-form-field>
+
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Performer Known As</mat-label>
+                <input matInput formControlName="performer_known_as" />
+              </mat-form-field>
+
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Genre </mat-label>
+                <input matInput formControlName="genre" required />
+              </mat-form-field>
+
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Mood</mat-label>
+                <input matInput formControlName="mood" required />
+              </mat-form-field>
+              <div style="display: none">
+                <ma-form-field appearance="fill" class="full-width">
+                  <mat-label>User Id</mat-label>
+                  <input
+                    matInput
+                    formControlName="user_id"
+                    value="{{ userId }}"
+                  />
+                </ma-form-field>
+              </div>
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Tags</mat-label>
+                <input matInput formControlName="tags" required />
+              </mat-form-field>
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Recording Location</mat-label>
+                <input matInput formControlName="recording_location" />
+              </mat-form-field>
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Recording Date</mat-label>
+                <input
+                  matInput
+                  [matDatepicker]="picker"
+                  name="recording_date"
+                  formControlName="recording_date"
+                  [min]="minDate"
+                  [max]="maxDate"
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="picker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+              <br />
+              <label id="usertypes-radio-group" class="hasVoxLabel">
+                Does This Song Have Vocals?
+              </label>
+              <mat-radio-group
+                formControlName="has_vocals"
+                aria-label="Select an option"
+              >
+                <mat-radio-button class="hasVoxButton" value="1">
+                  Has Vocals </mat-radio-button
+                ><br />
+                <mat-radio-button
+                  checked
+                  class="hasVoxButton"
+                  value="0"
+                  selected
+                  >Instrumental</mat-radio-button
+                >
+              </mat-radio-group>
+              <input type="hidden" formControlName="user_id" />
+            </div>
+            <div class="column">
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Price USD*</mat-label>
+                <input
+                  matInput
+                  formControlName="price"
+                  static="true"
+                  value="50"
+                  type="number"
+                  placeholder="50"
+                />
+              </mat-form-field>
+              <!-- </fieldset> -->
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Tonality</mat-label>
+                <select matNativeControl formControlName="musical_key" required>
+                  <option value="Minor" selected>Minor</option>
+                  <option value="Major">Major</option>
+                </select>
+              </mat-form-field>
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>BPM</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  formControlName="bpm"
+                  min="0"
+                  required
+                />
+              </mat-form-field>
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Recording Engineer</mat-label>
+                <input matInput formControlName="recording_engineer" />
+              </mat-form-field>
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Mixing Engineer</mat-label>
+                <input matInput formControlName="mixing_engineer" />
+              </mat-form-field>
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Mastering Engineer</mat-label>
+                <input matInput formControlName="mastering_engineer" />
+              </mat-form-field>
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Producer</mat-label>
+                <input matInput formControlName="song_producer" />
+              </mat-form-field>
+              <br />
+              <mat-hint class="centerMe" align="start">
+                <small
+                  >*During RAIDAR beta, pricing is fixed to $50 with a 1%
+                  transaction fee.</small
+                >
+              </mat-hint>
+            </div>
+          </div>
+        </form>
+
+        <div class="stepper-footer">
+          <div class="spacer">&nbsp;</div>
+          <div>
+            <button
+              mat-button
+              (click)="createSongID()"
+              color="primary"
+              mat-raised-button
+              color="primary"
+              class="makebig"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Upload</ng-template>
+        <div class="successBox animated fadeIn" *ngIf="successBox == true">
+          <br /><br />
+          <mat-icon class="congrats animated jackInTheBox" color="primary"
+            >thumb_up</mat-icon
+          >
+          <h3>Song Uploaded Successfully</h3>
+
+          <button
+            mat-stroked-button
+            color="primary"
+            (click)="clearOut()"
+            [routerLink]="['/audio-library']"
+            routerLinkActive="router-link-active"
+          >
+            Take me to my music
+          </button>
+        </div>
+
+        <div class="processingContainer" *ngIf="processingBox == true">
+          <div class="processingBox animated fadeIn">
+            <div class="centerMe">
+              <!-- <div
+                role="progressbar"
+                [style.width.%]="uploadResponse.message"
+                aria-valuenow="25"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                {{ uploadResponse.message }}%
+              </div> -->
+
+              <mat-progress-spinner
+                [diameter]="70"
+                mode="indeterminate"
+                style="margin: 0px auto"
+              ></mat-progress-spinner>
+            </div>
+            <h4 class="centerText">
+              Please Do Not Close or Refresh Your Browser<br/>
+              Uploading... <strong>{{ uploadResponse.message }}%</strong>
+            </h4>
+          </div>
+          <br />
+        </div>
+
+        <form [formGroup]="songData" class="full-width">
+          <ng-template matStepLabel>Song Info</ng-template>
+          <br />&nbsp;
+          <ng-container *ngIf="url == null">
+            Unable to upload at this time please try again later
+          </ng-container>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Choose audio file</mat-label>
+            <ngx-mat-file-input
+              placeholder="Choose A Wave File"
+              [accept]="'.wav'"
+              (change)="onFileChange($event)"
+            ></ngx-mat-file-input>
+
+            <mat-icon matSuffix>audiotrack</mat-icon>
+          </mat-form-field>
+        </form>
+        <p>
+          The audio file must be a <strong>WAV</strong> file. We recommend the
+          file is stereo and of the highest quality possible.
+        </p>
+
+        <div class="stepper-footer">
+          <div>&nbsp;</div>
+          <div class="spacer"></div>
+
+          <button
+            [disabled]="fileSelected != true"
+            (click)="uploadSong($event)"
+            mat-button
+            mat-raised-button
+            color="primary"
+            class="makebig"
+          >
+            Upload
+          </button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+</div>
+
+<!-- *Song file (high quality like wav, aiff, flac)
+    *Song title
+    Ownership
+    *Songwriter (limited to one)  ?
+    Artist name (if different from their songwriting persona e.g. Shawn Carter vs. Jay-Z)
+    Song characteristics
+    *Genre
+    *Mood
+    *Tag(s)
+    *Length
+    *BPM
+    Musical key (Major or Minor)
+    Instrumental or vocal?
+    *Price (for MVP, this field will likely be hidden or auto-populated as all songs will be priced equally)
+    Recording credits/details
+    Recording engineer
+    Mixing engineer
+    Mastering engineer
+    Producer
+    Date of recording
+    Name of recording location/studio
+    * = required
+    -->

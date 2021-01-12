@@ -1,0 +1,18 @@
+mat-card.edu-topic {
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-overflow: wrap;
+  width: 490px;
+  min-height: 200px;
+  align-items: center;
+}
+
+mat-card-header.edu-header {
+  text-align: center;
+}
+
+.edu-topic-icon {
+  width: 90px;
+}

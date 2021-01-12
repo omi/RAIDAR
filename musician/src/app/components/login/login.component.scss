@@ -1,0 +1,39 @@
+.right {
+  display: inline-flex;
+}
+
+#profileMenu {
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: inline-flex;
+  flex-direction: column-reverse;
+  border: 1px solid #45aaf2;
+  box-shadow: 0px 3px 5px #ddd;
+}
+
+.spacer {
+  margin: 10px;
+}
+
+.home-button {
+  position: absolute;
+  right: 60px;
+  top: 0px;
+  border-radius: 50%;
+  display: inline-flex;
+  width: 43px;
+  height: 43px;
+  background-color: white;
+  border: 1px solid #45aaf2;
+  color: #45aaf2;
+  box-shadow: 0px 3px 5px #ddd;
+  font-size: 16px;
+  font-size: 25px;
+  padding-top: 6px;
+  cursor: pointer;
+}
+
+::ng-deep .right :focus {
+  outline: -webkit-focus-ring-color auto 0px;
+}

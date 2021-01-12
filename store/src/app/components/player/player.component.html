@@ -1,0 +1,118 @@
+<div class="container">
+  <div class="headTop">
+    <app-search></app-search>
+   
+  </div>
+  <div class="storeList" *ngIf="searched == 0">
+    <div class="extraspace">
+      <h3 class=" animate__animated animate__jackInTheBox">Browse new music</h3>
+      <br/>
+    </div>
+    <div class="flexRow">
+      
+    </div>
+
+    <div class="songsBaby"> 
+
+      <ng-container *ngIf="songs$ | async as songs; else loading;">
+             
+        <div *ngFor="let song of songs; index as i">
+     
+        <mat-card class="song-card animate__animated animate__fadeInDown">
+          <mat-card-header>
+            <mat-card-title></mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="full-width">
+              <div class="songTitle">
+                <h4>{{ song.song_title }} by {{ getArtistName(song) }}</h4>
+              </div>
+              <div class="songElementRow">
+                <app-song
+                  [file_preview_loc]="song.file_preview_loc"
+                  [song_title]="song.song_title"
+                >
+                </app-song>
+                <div
+                  class="songElements"
+                  style="position: relative; left: 60px"
+                >
+                  <!-- <button mat-button (click)="openSong()">SEE DETAILS</button> -->
+                  <button
+                    mat-button
+                    *ngIf="!isInCart(song.song_id)"
+                    (click)="addToCart(song.song_id)"
+                  >
+                    ADD TO CART
+                  </button>
+                  <button
+                    mat-button
+                    *ngIf="isInCart(song.song_id)"
+                    (click)="removeFromCart(song.song_id)"
+                  >
+                    REMOVE FROM CART
+                  </button>
+                </div>
+                <app-checkout></app-checkout>
+              </div>
+            </div>
+            <div class="songDetails">
+              <mat-accordion class="mat-elevation-z0">
+                <mat-expansion-panel hideToggle class="mat-elevation-z0">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title> SEE DETAILS </mat-panel-title>
+                    <mat-panel-description> </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <p>
+                    Price: ${{ song.price }}<br />
+                    Key: {{ song.musical_key }}<br />
+                    Artist: {{ song.performer_known_as }}<br />
+                    Songwriter: {{ song.song_writer }}<br />
+                    Genre:{{ song.genre }}<br />
+                    Mood: {{ song.mood }}<br />
+                    Recording Details:<br />
+                    {{ getRecordingDate(song) }}<br />
+                    {{ song.recording_loc }}<br />
+                  </p>
+                </mat-expansion-panel>
+              </mat-accordion>
+            </div>
+            <ng-container *ngIf="song.tags != ''">
+              <app-taglist [songtags]="song.tags"></app-taglist>
+            </ng-container>
+            <ng-container *ngIf="song.tags == ''">
+              <mat-chip-list>
+                <fa-icon [icon]="faExclamationTriangle" class="blue"></fa-icon>
+                <mat-chip>No Tags Provided</mat-chip>
+              </mat-chip-list>
+            </ng-container>
+          </mat-card-content>
+        </mat-card>
+      </div>
+   
+    </ng-container>
+
+    <ng-template #loading>
+                <div class="centerMe">
+                  <div class="centered">
+                    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+                  </div>
+                </div>
+      
+    </ng-template>
+  </div>
+  <!-- <mat-paginator
+  (page)="onPageChange($event)"
+  [length]="songs.length"
+  [pageSize]="5"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  >
+</mat-paginator> -->
+
+  <!-- <div class="rightNav">
+    <app-playerdetail
+      [song]="selectedSong"
+      (urlActivated)="onUrlActivated()"
+    ></app-playerdetail>
+  </div> -->
+</div>

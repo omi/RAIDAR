@@ -1,0 +1,187 @@
+.search-field {
+  width: 100%;
+}
+
+::ng-deep {
+  .mat-form-field .mat-form-field-flex {
+    background-color: white;
+  }
+  .mat-form-field-wrapper {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+}
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  display: flex;
+  position: absolute;
+  top: 0.1em !important;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.mat-input-element {
+  background-color: white;
+}
+
+::ng-deep.mat-form-field-appearance-outline .mat-form-field-outline {
+  display: flex;
+  position: absolute;
+  top: 0em !important;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.storeList {
+  display: table;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-gap: 20px;
+  width: 960px;
+  background-color: #e6f4ff !important;
+}
+
+.mat-list-item {
+  width: 100%;
+  display: block;
+}
+
+.full-width {
+  display: block;
+  width: 100%;
+  margin: 10px auto;
+}
+
+.searchList {
+  display: table;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-gap: 20px;
+  width: 960px;
+  background-color: #e6f4ff !important;
+}
+
+.artwork {
+  max-width: 300px;
+  height: 120px;
+  display: block;
+}
+
+.left {
+  flex: none;
+  max-width: 300px;
+  float: left;
+}
+
+.right {
+  max-width: 800px;
+  flex: none;
+}
+
+.playerItem {
+  list-style-type: none;
+}
+.playerItem li {
+  margin-bottom: 20px;
+}
+
+.songTitle {
+  display: block;
+  clear: right;
+}
+
+.songElementsRow {
+  display: flex;
+  flex-direction: row;
+}
+
+h4 {
+  display: block;
+  font-size: 19px;
+}
+
+.songElementRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.songDetails {
+  max-width: 800px;
+}
+
+mat-accordion {
+  box-shadow: none !important;
+}
+
+app-song {
+  width: 630px;
+}
+
+.ngx-basic-audio-player {
+  width: 630px;
+}
+
+body {
+  margin: 0;
+}
+
+.tags {
+  display: block;
+}
+
+svg,
+img {
+  display: block;
+}
+
+form {
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-top: 10px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotateZ(0);
+  }
+  to {
+    transform: rotateZ(1turn);
+  }
+}
+
+.flexRow {
+  display: flex;
+  padding-left: 20px;
+}
+
+.flex-child {
+  flex: 1 1 auto;
+  max-width: 10px;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+.songElements {
+  display: auto;
+  padding-right: 20px;
+  width: 270px;
+}
+
+.song-card {
+  flex: auto;
+  border: 1px solid #eeeeee;
+  margin: 11px;
+  content: normal;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0px;
+}

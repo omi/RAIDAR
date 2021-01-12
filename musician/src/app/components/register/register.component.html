@@ -1,0 +1,76 @@
+<div class="container">
+  <h2>Register</h2>
+  <div class="registerForm">
+    <ng-template matStepLabel>Terms</ng-template>
+    <br />
+    <div class="scrollable">
+      <strong>Terms of Service</strong><br />
+      <p>
+      RAIDAR provides you with a mechanism to license your work(s). Berklee’s responsibility is limited to this facilitation and does not represent any further commitment with respect to enforcement of any agreements that Berklee composers may enter into of their own free will.
+      </p>
+      <p>
+      In uploading your musical work(s) to RAIDAR you warrant and represent the following:
+      </p>
+      <ol>
+        <li>You are the sole author of the work(s).</li>
+        <li>You either are the sole performer of the work(s), or, if there are other performers, you have work-for-hire agreements with any and all other performers, producers, engineers, or any other party who may make a claim to any form of copyright ownership of or participation on the work(s).</li>
+        <li>There are no uncleared samples in the work(s); this means that you have not incorporated the copyrighted work(s) of any other copyright holder. For example, you have not:</li>
+        <ul>
+          <li style="list-style:none">a. Taken a portion of an existing, copyrighted recording and utilized it in your work(s).</li>
+          <li style="list-style:none">b. Recreated a version (i.e. replayed) a copyrighted work and utilized it in your work(s).</li>
+        </ul>
+        <li>Notwithstanding the forgoing, you are permitted to upload your work(s) to RAIDAR if they include so-called “royalty-free” elements, and you have documentation proving that any outside elements to your work(s) are royalty free.</li>
+        <li>You have the exclusive rights to reproduce, distribute, display, publicly perform and create derivatives of the work(s).</li>
+        <li>You have the rights to upload any promotional materials related to your work(s), including, but not limited to, name and likeness, biographical information, photographs, and any and all other artwork.</li>
+        <li>You are at least 18 years old.</li>
+        <li>You understand and agree to the above terms and conditions.</li>
+        <li>You indemnify and hold harmless RAIDAR, Berklee, MIT and any of its designees with respect to any claims brought against you or your work(s) uploaded to RAIDAR.</li>
+      </ol>
+      <p>
+        In consideration of the above, RAIDAR agrees to provide hosting of the work(s) you upload, and to aid in the facilitation of providing exposure and licensing opportunities for your work(s). Berklee does not promise or guarantee that your work(s) will be licensed; nor does Berklee promise or guarantee to enforce any license that you enter into via the RADAR platform.
+      </p>
+      <p>
+        Berklee will provide you the ability to, at any time, and at your sole discretion, remove your work(s), profile and all data from RAIDAR. In regards to GDPR (General Data Protection Regulation) and data ownership and privacy:
+      </p>
+      <ol>
+        <li>RAIDAR obtains your express consent that the metadata will be uploaded to the RAIDAR platform and visible to everyone.</li>
+        <li>You own the metadata and can remove it from RAIDAR at anytime.</li>
+        <li>Some actions by RAIDAR are not reversible (e.g. storing hash onto a blockchain) even after a metadata is removed.</li>
+        <li>RAIDAR stores only minimal user-information in encrypted form.</li>
+      </ol>
+      <p>
+        Berklee will provide you with access to information related to the work(s) you upload in a best-effort manner.
+      </p>
+      <p>
+        Berklee makes no claim of ownership to your work(s). Notwithstanding the foregoing, Berklee’s Intellectual Property Policy will govern the use of any work(s) uploaded to RAIDAR.
+      </p>
+    </div>
+
+    <form [formGroup]="regData" class="regForm">
+      <label id="usertypes-radio-group"
+        >What is your current status at Berklee?</label
+      ><br />
+      <mat-radio-group aria-label="Select an option" formControlName="userType"
+        ><br />
+        <mat-radio-button value="Student">Student</mat-radio-button><br /><br />
+        <mat-radio-button value="Alumni">Alumni</mat-radio-button><br /><br />
+      </mat-radio-group>
+    </form>
+    <div class="check-area">
+      <mat-checkbox> I agree to the Terms of Service (above)</mat-checkbox>
+      <br /><br />
+
+      <div>
+        <button
+          mat-raised-button
+          color="accent"
+          (click)="submitRegistration()"
+          [disabled]="!agreedTOS"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+    <br /><br />
+  </div>
+</div>

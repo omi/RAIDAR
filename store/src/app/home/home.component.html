@@ -1,0 +1,8 @@
+<div *ngIf="loggedIn" class="stage">
+  <div *ngIf="firstLogin || !hasAgreedTOS">
+    <app-register></app-register>
+  </div>
+  <div *ngIf="!firstLogin && hasAgreedTOS">
+    <app-edu-topic-list></app-edu-topic-list>
+  </div>
+</div>

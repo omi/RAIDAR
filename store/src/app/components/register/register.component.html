@@ -1,0 +1,47 @@
+<div class="container">
+  <h2>Register</h2>
+  <div class="registerForm">
+    <ng-template matStepLabel>Terms</ng-template>
+    <br />
+    <div class="scrollable">
+      <strong>Terms of Service</strong><br />
+      <p>
+      RAIDAR provides you with an opportunity to search for, preview and license the musical work(s) of the Berklee community. The sole purpose of this access to RAIDAR is for you to find and license musical work(s) for your student films and other visual media projects. You are not authorized to use the work(s) on RAIDAR for any other purpose; commercial or non-commercial.
+      </p>
+      <p>
+        By accessing RAIDAR you agree:
+      </p>
+      <ol>
+        <li>That you are associated to an instituation that has partnered with RAIDAR.</li>
+        <li>That should you desire to utilize any work(s) on RAIDAR you will contract with the Berklee student or alumna via the provided for licensing agreement.</li>
+        <li>That you will not utilize any work(s) found on RAIDAR for any other purposes than those outlined in the licensing agreement.</li>
+      </ol>
+    </div>
+
+    <form [formGroup]="regData">
+      <label id="usertypes-radio-group"
+        >What is your current status at Berklee?</label
+      ><br />
+      <mat-radio-group aria-label="Select an option" formControlName="userType"
+        ><br />
+        <mat-radio-button value="Student">Student</mat-radio-button><br /><br />
+        <mat-radio-button value="Alumni">Alumni</mat-radio-button><br /><br />
+      </mat-radio-group>
+    </form>
+    <div class="check-area">
+      <mat-checkbox> I agree to the Terms of Service (above)</mat-checkbox>
+      <br /><br />
+    </div>
+    <div>
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="submitRegistration()"
+        [disabled]="!agreedTOS"
+      >
+        Submit
+      </button>
+    </div>
+    <br /><br />
+  </div>
+</div>

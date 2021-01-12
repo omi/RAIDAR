@@ -1,0 +1,372 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+  background-color: #fafafa;
+}
+body {
+  margin: 0;
+  font-family: Heebo, "Helvetica Neue", sans-serif !important;
+}
+body::after {
+  display: block;
+  content: "Copyright 2020";
+  position: fixed;
+  top: 100vh;
+  left: 20px;
+  font-family: Heebo;
+  font-size: 14px;
+  margin-top: -20px;
+  border: 1px solid #ccc;
+  width: 130px;
+  height: 20px;
+  color: #49a8ec;
+  background-color: #e6f4ff;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  text-align: center;
+}
+// audio {
+//   width: 740px;
+//   -webkit-transition: all 0.5s linear;
+//   -moz-transition: all 0.5s linear;
+//   -o-transition: all 0.5s linear;
+//   transition: all 0.5s linear;
+//   -moz-box-shadow: 2px 2px 4px 0px #e6f4ff;
+//   -webkit-box-shadow: 2px 2px 4px 0px #e6f4ff;
+//   box-shadow: 2px 2px 4px 0px #e6f4ff;
+//   -moz-border-radius: 7px 7px 7px 7px;
+//   -webkit-border-radius: 7px 7px 7px 7px;
+//   border-radius: 7px 7px 7px 7px;
+//   background-color: #e6f4ff;
+// }
+
+app-song {
+  display: inline-block;
+  width: 520px;
+  margin-bottom: 10px;
+}
+
+@import "~animate.css/animate.min";
+/**
+* Generated theme by Material Theme Generator
+* https://materialtheme.arcsine.dev
+*/
+@import "~@angular/material/theming";
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+
+// Fonts
+@import "https://fonts.googleapis.com/css?family=Material+Icons+Outlined";
+// @import url("https://fonts.googleapis.com/css?family=Arial:300,400,500");
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@100;300;400;500;700;800;900&display=swap");
+
+$custom-typography: mat-typography-config(
+  $font-family: "Heebo",
+  $display-4: mat-typography-level(112px, 112px, 300),
+  $display-3: mat-typography-level(56px, 56px, 400),
+  $display-2: mat-typography-level(45px, 48px, 400),
+  $display-1: mat-typography-level(34px, 40px, 400),
+  $headline: mat-typography-level(24px, 32px, 400),
+  $title: mat-typography-level(20px, 32px, 500),
+  $subheading-2: mat-typography-level(16px, 28px, 400),
+  $subheading-1: mat-typography-level(15px, 24px, 400),
+  $body-2: mat-typography-level(14px, 24px, 500),
+  $body-1: mat-typography-level(14px, 20px, 400),
+  $caption: mat-typography-level(12px, 20px, 400),
+  $button: mat-typography-level(14px, 14px, 500),
+  $input: mat-typography-level(inherit, 1.125, 400),
+);
+
+@include mat-base-typography($custom-typography);
+
+// Override typography for a specific Angular Material components.
+@include mat-checkbox-typography($custom-typography);
+
+// Override typography for all Angular Material, including mat-base-typography and all components.
+@include angular-material-typography($custom-typography);
+
+@include mat-core($custom-typography);
+
+// Foreground Elements
+
+// Light Theme Text
+$dark-text: #000000;
+$dark-primary-text: rgba($dark-text, 0.87);
+$dark-accent-text: rgba($dark-primary-text, 0.54);
+$dark-disabled-text: rgba($dark-primary-text, 0.38);
+$dark-dividers: rgba($dark-primary-text, 0.12);
+$dark-focused: rgba($dark-primary-text, 0.12);
+
+$mat-light-theme-foreground: (
+  base: black,
+  divider: $dark-dividers,
+  dividers: $dark-dividers,
+  disabled: $dark-disabled-text,
+  disabled-button: rgba($dark-text, 0.26),
+  disabled-text: $dark-disabled-text,
+  elevation: black,
+  secondary-text: $dark-accent-text,
+  hint-text: $dark-disabled-text,
+  accent-text: $dark-accent-text,
+  icon: $dark-accent-text,
+  icons: $dark-accent-text,
+  text: $dark-primary-text,
+  slider-min: $dark-primary-text,
+  slider-off: rgba($dark-text, 0.26),
+  slider-off-active: $dark-disabled-text,
+);
+
+// Dark Theme text
+$light-text: #ffffff;
+$light-primary-text: $light-text;
+$light-accent-text: rgba($light-primary-text, 0.7);
+$light-disabled-text: rgba($light-primary-text, 0.5);
+$light-dividers: rgba($light-primary-text, 0.12);
+$light-focused: rgba($light-primary-text, 0.12);
+
+$mat-dark-theme-foreground: (
+  base: $light-text,
+  divider: $light-dividers,
+  dividers: $light-dividers,
+  disabled: $light-disabled-text,
+  disabled-button: rgba($light-text, 0.3),
+  disabled-text: $light-disabled-text,
+  elevation: black,
+  hint-text: $light-disabled-text,
+  secondary-text: $light-accent-text,
+  accent-text: $light-accent-text,
+  icon: $light-text,
+  icons: $light-text,
+  text: $light-text,
+  slider-min: $light-text,
+  slider-off: rgba($light-text, 0.3),
+  slider-off-active: rgba($light-text, 0.3),
+);
+
+// Background config
+// Light bg
+$light-background: #fafafa;
+$light-bg-darker-5: darken($light-background, 5%);
+$light-bg-darker-10: darken($light-background, 10%);
+$light-bg-darker-20: darken($light-background, 20%);
+$light-bg-darker-30: darken($light-background, 30%);
+$light-bg-lighter-5: lighten($light-background, 5%);
+$dark-bg-alpha-4: rgba(#2c2c2c, 0.04);
+$dark-bg-alpha-12: rgba(#2c2c2c, 0.12);
+
+$mat-light-theme-background: (
+  background: $light-background,
+  status-bar: $light-bg-darker-20,
+  app-bar: $light-bg-darker-5,
+  hover: $dark-bg-alpha-4,
+  card: $light-bg-lighter-5,
+  dialog: $light-bg-lighter-5,
+  disabled-button: $dark-bg-alpha-12,
+  raised-button: $light-bg-lighter-5,
+  focused-button: $dark-focused,
+  selected-button: $light-bg-darker-20,
+  selected-disabled-button: $light-bg-darker-30,
+  disabled-button-toggle: $light-bg-darker-10,
+  unselected-chip: $light-bg-darker-10,
+  disabled-list-option: $light-bg-darker-10,
+);
+
+// Dark bg
+$dark-background: #2c2c2c;
+$dark-bg-lighter-5: lighten($dark-background, 5%);
+$dark-bg-lighter-10: lighten($dark-background, 10%);
+$dark-bg-lighter-20: lighten($dark-background, 20%);
+$dark-bg-lighter-30: lighten($dark-background, 30%);
+$light-bg-alpha-4: rgba(#fafafa, 0.04);
+$light-bg-alpha-12: rgba(#fafafa, 0.12);
+
+// Background palette for dark themes.
+$mat-dark-theme-background: (
+  background: $dark-background,
+  status-bar: $dark-bg-lighter-20,
+  app-bar: $dark-bg-lighter-5,
+  hover: $light-bg-alpha-4,
+  card: $dark-bg-lighter-5,
+  dialog: $dark-bg-lighter-5,
+  disabled-button: $light-bg-alpha-12,
+  raised-button: $dark-bg-lighter-5,
+  focused-button: $light-focused,
+  selected-button: $dark-bg-lighter-20,
+  selected-disabled-button: $dark-bg-lighter-30,
+  disabled-button-toggle: $dark-bg-lighter-10,
+  unselected-chip: $dark-bg-lighter-20,
+  disabled-list-option: $dark-bg-lighter-10,
+);
+
+// Compute font config
+
+// Theme Config
+
+body {
+  --primary-color: #e7e7e7;
+  --primary-lighter-color: #f8f8f8;
+  --primary-darker-color: #dddddd;
+  --text-primary-color: #{$dark-primary-text};
+  --text-primary-lighter-color: #{$dark-primary-text};
+  --text-primary-darker-color: #{$dark-primary-text};
+}
+
+$mat-primary: (
+  main: #45aaf2,
+  lighter: #45aaf2,
+  darker: rgb(103, 184, 241),
+  200: #45aaf2,
+  // For slide toggle,
+    contrast:
+    (
+      main: $dark-primary-text,
+      lighter: $dark-primary-text,
+      darker: $dark-primary-text,
+    ),
+);
+$theme-primary: mat-palette($mat-primary, main, lighter, darker);
+
+body {
+  --accent-color: #45aaf2;
+  --accent-lighter-color: #d7d7d7;
+  --accent-darker-color: #5c5c5c;
+  --text-accent-color: #{$light-primary-text};
+  --text-accent-lighter-color: #{$dark-primary-text};
+  --text-accent-darker-color: #{$light-primary-text};
+}
+
+$mat-accent: (
+  main: rgb(73, 168, 236),
+  lighter: rgb(139, 197, 238),
+  darker: rgb(27, 122, 190),
+  200: rgb(46, 143, 212),
+  // For slide toggle,
+    contrast:
+    (
+      main: $light-primary-text,
+      lighter: $dark-primary-text,
+      darker: $light-primary-text,
+    ),
+);
+$theme-accent: mat-palette($mat-accent, main, lighter, darker);
+
+body {
+  --warn-color: #ff0000;
+  --warn-lighter-color: #ffb3b3;
+  --warn-darker-color: #ff0000;
+  --text-warn-color: #{$light-primary-text};
+  --text-warn-lighter-color: #{$dark-primary-text};
+  --text-warn-darker-color: #{$light-primary-text};
+}
+
+$mat-warn: (
+  main: #ff0000,
+  lighter: #ffb3b3,
+  darker: #ff0000,
+  200: #ff0000,
+  // For slide toggle,
+    contrast:
+    (
+      main: $light-primary-text,
+      lighter: $dark-primary-text,
+      darker: $light-primary-text,
+    ),
+);
+$theme-warn: mat-palette($mat-warn, main, lighter, darker);
+
+$theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
+$altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
+
+// Theme Init
+@include angular-material-theme($theme);
+
+.theme-alternate {
+  @include angular-material-theme($altTheme);
+}
+
+// Specific component overrides, pieces that are not in line with the general theming
+h1,
+h2,
+h3,
+h4 {
+  color: mat-color($theme-primary) !important;
+}
+
+h2 {
+  font-size: 2em;
+  margin-left: 10px;
+  margin-bottom: 0px;
+}
+
+.basic-container .mat-step-header .mat-step-icon-selected {
+  background-color: mat-color($theme-primary) !important;
+  color: #fff;
+}
+
+.mat-step-header .mat-step-icon {
+  background-color: mat-color($theme-primary) !important;
+  color: #fff;
+}
+.mat-step-header.cdk-keyboard-focused,
+.mat-step-header.cdk-program-focused,
+.mat-step-header:hover {
+  background-color: rgba(139, 197, 238, 0.04);
+  border-radius: 10px;
+}
+
+.mat-horizontal-stepper-header::before,
+.mat-horizontal-stepper-header::after,
+.mat-stepper-horizontal-line {
+  border-top-color: rgba(139, 197, 238, 0.12);
+}
+.mat-horizontal-stepper-header::after,
+.mat-horizontal-stepper-header::before,
+.mat-stepper-horizontal-line {
+  border-top-color: rgba(139, 197, 238, 0.12);
+}
+
+// Handle buttons appropriately, with respect to line-height
+.mat-raised-button,
+.mat-stroked-button,
+.mat-flat-button {
+  padding: 0 1.15em;
+  margin: 0 0.65em;
+  min-width: 3em;
+  line-height: 36.4px;
+}
+
+.mat-standard-chip {
+  padding: 0.5em 0.85em;
+  min-height: 2.5em;
+}
+
+.material-icons {
+  font-size: 24px;
+  font-family: "Material Icons Outlined", "Material Icons";
+  .mat-badge-content {
+    font-family: "Arial";
+  }
+}
+.stage {
+  background-color: white;
+  height: 100%;
+  max-width: 800px;
+  width: 80%;
+  margin: 0px auto;
+  margin-top: 0px;
+}
+
+.container {
+  padding-top: 15px;
+}
+
+.container {
+  background-color: white;
+  border-radius: 3px;
+}
+
+.blue {
+  color: #45aaf2 !important;
+}

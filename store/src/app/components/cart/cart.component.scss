@@ -1,0 +1,38 @@
+.songInCart {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.songAttr {
+  margin: 5px;
+}
+
+.header {
+  font-weight: bold;
+  color: #45aaf2;
+}
+
+.title {
+  min-width: 275px;
+}
+
+.quantity {
+  text-align: center;
+  min-width: 200px;
+}
+
+.price {
+  min-width: 100px;
+}
+
+.grandTotal {
+  text-align: right;
+}
+
+.checkoutBtn {
+  float: right;
+  padding: 5px;
+}

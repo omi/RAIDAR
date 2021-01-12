@@ -1,0 +1,21 @@
+.container {
+  background-color: #e6f4ff !important;
+  width: 760px;
+  
+  margin: 0px auto;
+
+}
+.edu-topic-cntr {
+  display: flex;
+    flex-direction: column;
+    flex-wrap: inherit;
+}
+
+.flexRow {
+  display: flex;
+  margin: 0px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
